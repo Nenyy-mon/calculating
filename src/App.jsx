@@ -55,6 +55,21 @@ function App() {
   setOperator(e.target.innerHTML)
       setCurrFunc(e.target.id)
   }
+
+  function onClickDivide(e) {
+    if(valuePrep === 0) {
+      return;
+    } else if(valueSave === 0) {
+      setValueSave(valuePrep)
+      setValuePrep(initialValue)
+  } else {
+    setValueSave(Number(valueSave) / Number(valuePrep))
+      setValuePrep(initialValue)
+    
+  }
+  setOperator(e.target.innerHTML)
+      setCurrFunc(e.target.id)
+  }
  
   function onClickEquals() {
       switch(currFunc) {
@@ -70,6 +85,11 @@ function App() {
       break;
       case "multiply": {
         setValueSave(Number(valueSave) * Number(valuePrep))
+        setValuePrep(initialValue)
+      }
+      break;
+      case "divide": {
+        setValueSave(Number(valueSave) / Number(valuePrep))
         setValuePrep(initialValue)
       }
       break;
@@ -183,7 +203,8 @@ function App() {
      operator={operator}
      onClickEquals={onClickEquals}
      onClickMultiply={onClickMultiply}
-     onClickSubtract={onClickSubtract}/>
+     onClickSubtract={onClickSubtract}
+     onClickDivide={onClickDivide}/>
     
     </div>
   )

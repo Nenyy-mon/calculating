@@ -1,9 +1,11 @@
+/* eslint-disable react/prop-types */
 function ButtonBox(
     {switchCalc, 
     onClickAdd, 
     onClickEquals, 
     onClickSubtract,
-    onClickMultiply}) {
+    onClickMultiply,
+    onClickDivide}) {
    return  (
         <div className="parent-button">
             <button 
@@ -112,6 +114,7 @@ function ButtonBox(
             </button>
             
             <button
+            onClick={onClickDivide}
             id="divide"
             className="child-button">
                 /
